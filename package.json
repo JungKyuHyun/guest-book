@@ -1,0 +1,21 @@
+{
+  "name": "simple-toy-project-server-and-client",
+  "author": {
+    "name": "JungKyuHyun",
+    "email": "ajdkfl6445@naver.com"
+  },
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "private": true,
+  "workspaces": [
+    "client",
+    "server"
+  ],
+  "scripts": {
+    "client": "yarn workspace client dev",
+    "client:test": "yarn workspace client test",
+    "server:dev": "yarn workspace server dev",
+    "server:prod": "yarn workspace server start:prod"
+  }
+}
