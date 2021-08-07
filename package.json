@@ -15,6 +15,7 @@
   "scripts": {
     "client": "yarn workspace client dev",
     "client:test": "yarn workspace client test",
+    "client:test:watch": "yarn workspace client test:watch",
     "server:dev": "yarn workspace server dev",
     "server:prod": "yarn workspace server start:prod"
   }
