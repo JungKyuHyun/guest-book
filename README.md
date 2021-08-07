@@ -32,6 +32,8 @@
 - `react-query` 사용시 `cache` 업데이트 및 커스텀 훅 작성 방법
 - `react`에서 `HTML tag`를 삽입하면서 `dutiy string`을 삭제하여 `xss` 공격을 막는 방법
 - `express`에서 `status code` 및 에러 메시지를 내려주는 법
+- `@testing-library/react` 및 `react-test-renderer` 사용법
+- `emotion`을 통해 만들어진 컴포넌트의 테스트 케이스 작성법
 - ...
 
 ## Preview UI
