@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Typography /> match snapshot 1`] = `
+<p
+  className="css-erd9ta-TypographyRoot-DEFAULT_TYPE_STYLES e1judseu0"
+  color="grey900"
+  scale="body2"
+/>
+`;

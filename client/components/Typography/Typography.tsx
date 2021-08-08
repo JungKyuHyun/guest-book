@@ -1,17 +1,18 @@
 import React, { ReactNode } from 'react';
 import styled from '@emotion/styled';
-import { Colors } from 'styles/colors';
+import { colors, Colors } from 'styles/colors';
 import { DEFAULT_TYPE_STYLES, Scale, DEFAULT_HTML_TAG } from './constants';
 import { sanitizeHTML } from 'utils/sanitize';
 
 const TypographyRoot = styled.span<
-  Required<Omit<TypographyProps, 'className' | 'children' | 'innerHTML'>> &
+  Partial<Omit<TypographyProps, 'className' | 'children' | 'innerHTML'>> &
     Pick<TypographyProps, 'className'>
 >`
-  ${({ scale }) => DEFAULT_TYPE_STYLES[scale]};
+  ${({ scale }) => scale !== undefined && DEFAULT_TYPE_STYLES[scale]};
   position: relative;
   margin: 0;
-  color: ${({ theme, color }) => theme.color[color]};
+  color: ${({ theme, color }) =>
+    color !== undefined && (theme.color?.[color] ?? colors.grey900)};
   white-space: pre-line;
   word-break: keep-all;
   font-weight: ${({ fontWeight }) => fontWeight};
@@ -35,7 +36,7 @@ export function Typography({
   as,
   scale = 'body2',
   color = 'grey900',
-  fontWeight = 400,
+  fontWeight,
   innerHTML,
 }: TypographyProps) {
   const renderElement =
