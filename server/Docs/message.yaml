@@ -1,0 +1,194 @@
+openapi: 3.1.0
+info:
+  title: message
+  version: '1.0'
+  summary: 방명록 프로젝트에서 제공되는 API
+  description: |-
+    방명록 프로젝트에서만 사용될 용도의 message api를 제공한다.
+    stoplight 사용법 및 API 문서화의 경험을 쌓고자 만들어 본다.
+  license:
+    name: MIT
+    url: 'https://github.com/git/git-scm.com/blob/main/MIT-LICENSE.txt'
+  contact:
+    name: JungKyuHyun
+    email: ajdkfl6445@gmail.com
+servers:
+  - url: 'http://localhost:8080'
+    description: dev
+paths:
+  /messages:
+    post:
+      summary: message 생성
+      operationId: post-messages
+      responses:
+        '200':
+          description: Message Created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Message'
+              examples:
+                example:
+                  value:
+                    id: 19e73fec-7aa7-4d1f-9093-dc22e3a3f917
+                    userId: Bob
+                    description: 안녕하세요 반가워요!
+                    timestamp: 1628092227729
+        '400':
+          description: Missing Required Information
+        '409':
+          description: Email Already Taken
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                userId:
+                  type: string
+                  description: 유저 아이디
+                description:
+                  type: string
+                  description: 본문
+              required:
+                - userId
+                - description
+            examples:
+              example-body:
+                value:
+                  userId: Bob
+                  description: 안녕하세요 반가워요!
+        description: '새로운 message를 만들기 위한 body '
+      description: 단일 메시지를 생성합니다.
+    parameters: []
+    get:
+      summary: message 목록 가져오기
+      operationId: get-messages
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Message'
+              examples:
+                example-1:
+                  value:
+                    - id: 19e73fec-7aa7-4d1f-9093-dc22e3a3f917
+                      description: "Repository: <a href='https://github.com/JungKyuHyun/guest-book' target='_blank' rel='noopener'>https://github.com/JungKyuHyun/guest-book</a>"
+                      userId: JungKyuHyun
+                      timestamp: 1628092227729
+                    - id: 212ebc59-f125-4017-b0e6-05b422eab3ce
+                      description: "Introduce Myself: <a href='https://ajdkfl6445.gitbook.io/study/' target='_blank' rel='noopener'>https://ajdkfl6445.gitbook.io/study/</a>"
+                      userId: JungKyuHyun
+                      timestamp: 1628092216540
+                    - id: 671bd72c-28f9-4ac4-91ae-c8bbc65d0978
+                      description: "Blog: <a href='https://code-masterjung.tistory.com/' target='_blank' rel='noopener'>https://code-masterjung.tistory.com/</a>"
+                      userId: JungKyuHyun
+                      timestamp: 1628092161685
+      description: message 목록을 반환합니다.
+  '/messages/{id}':
+    put:
+      summary: message 수정
+      operationId: 'put-messages-:id'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Message'
+              examples:
+                example-1:
+                  value:
+                    id: 212ebc59-f125-4017-b0e6-05b422eab3ce
+                    description: "Introduce Myself: <a href='https://ajdkfl6445.gitbook.io/study/' target='_blank' rel='noopener'>https://ajdkfl6445.gitbook.io/study/</a>"
+                    userId: JungKyuHyun
+                    timestamp: 1628092216540
+      description: 작성된 메시지를 수정할 수 있습니다.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                userId:
+                  type: string
+                  description: 유저 아이디
+                description:
+                  type: string
+                  description: 수정한 내용
+              required:
+                - userId
+                - description
+            examples:
+              example-1:
+                value:
+                  userId: JungKyuHyun
+                  description: "Introduce Myself: <a href='https://ajdkfl6445.gitbook.io/study/' target='_blank' rel='noopener'>https://ajdkfl6445.gitbook.io/study/</a>"
+        description: 수정할 내용과 유저 아이디
+    delete:
+      summary: message 삭제
+      operationId: 'delete-messages-:id'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    description: 삭제된 메시지 id
+                required:
+                  - id
+              examples:
+                example-1:
+                  value:
+                    id: 212ebc59-f125-4017-b0e6-05b422eab3ce
+      description: 단일 메시지를 삭제합니다
+      parameters:
+        - schema:
+            type: string
+          in: query
+          name: userId
+          description: 유저 아이디
+          required: true
+    parameters:
+      - schema:
+          type: string
+        name: id
+        in: path
+        required: true
+components:
+  schemas:
+    Message:
+      title: Message
+      type: object
+      description: Message model
+      examples:
+        - id: 212ebc59-f125-4017-b0e6-05b422eab3ce
+          description: "Introduce Myself: <a href='https://ajdkfl6445.gitbook.io/study/' target='_blank' rel='noopener'>https://ajdkfl6445.gitbook.io/study/</a>"
+          userId: JungKyuHyun
+          timestamp: 1628092216540
+      properties:
+        id:
+          type: string
+          description: Unique identifier for the given message.
+        userId:
+          type: string
+          description: 유저 아이디
+        description:
+          type: string
+          description: 작성한 본문
+        timestamp:
+          type: number
+          description: 작성 일시
+      required:
+        - id
+        - userId
+        - description
+        - timestamp
