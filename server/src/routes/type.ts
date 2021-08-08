@@ -10,10 +10,16 @@ export enum HttpMethod {
   PATCH = 'patch',
 }
 
+export type Handler = (
+  req: Request,
+  res: Response,
+  next?: NextFunction
+) => void;
+
 export interface Route {
   method: HttpMethod;
   route: string;
-  handler: (req: Request, res: Response, next?: NextFunction) => void;
+  handler: Handler | ReadonlyArray<Handler>;
 }
 
 export type Routes = ReadonlyArray<Route>;

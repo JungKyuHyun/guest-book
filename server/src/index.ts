@@ -19,7 +19,9 @@ app.use(
 
 const routes = [...messagesRoute, ...usersRoute];
 routes.forEach(({ method, route, handler }) => {
-  app[method](route, handler);
+  typeof handler === 'object'
+    ? app[method](route, ...handler)
+    : app[method](route, handler);
 });
 
 app.get('/', (req, res) => {
