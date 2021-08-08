@@ -1,17 +1,17 @@
 import { AxiosError } from 'axios';
-import { Msg, Msgs } from 'models/Msg';
+import { Message, Messages } from 'models/Message';
 import { useMutation, useQueryClient } from 'react-query';
 import { MsgServices } from 'services/message.service';
 
 export function useDeleteMsg() {
   const queryClient = useQueryClient();
 
-  return useMutation<string, AxiosError, Pick<Msg, 'id' | 'userId'>>(
+  return useMutation<string, AxiosError, Pick<Message, 'id' | 'userId'>>(
     ({ id, userId }) => MsgServices.deleteMsg(id, userId),
     {
       onSuccess: async (deletedId) => {
         await queryClient.cancelQueries('msgs');
-        const previousMsgs = queryClient.getQueryData<Msgs>('msgs');
+        const previousMsgs = queryClient.getQueryData<Messages>('msgs');
 
         if (previousMsgs !== undefined) {
           const targetIndex = previousMsgs.findIndex(
