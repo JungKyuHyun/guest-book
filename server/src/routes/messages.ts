@@ -2,6 +2,7 @@ import { readDB, writeDB } from 'dbController';
 import { Routes, HttpMethod } from './type';
 import { v4 } from 'uuid';
 import { MessageDto } from 'models/Message';
+import { isSignInUser } from 'middlewares/isSignInUser';
 
 const getMsgs = () => readDB<ReadonlyArray<MessageDto>>('messages') ?? [];
 const setMsgs = (data: any) => writeDB('messages', data);
@@ -35,25 +36,24 @@ export const messagesRoute: Routes = [
   {
     method: HttpMethod.POST,
     route: '/messages',
-    handler: ({ body }, res) => {
-      try {
-        const msgs = getMsgs();
-        if (body?.userId === undefined) {
-          res.status(404).send('사용자 정보가 없습니다.');
-          return;
+    handler: [
+      isSignInUser,
+      ({ body }, res) => {
+        try {
+          const msgs = getMsgs();
+          const newMsg = {
+            id: v4(),
+            description: body?.description ?? '',
+            userId: body.userId,
+            timestamp: Date.now(),
+          };
+          writeDB('messages', [newMsg, ...msgs]);
+          res.send(newMsg);
+        } catch (error) {
+          res.status(500).send({ error });
         }
-        const newMsg = {
-          id: v4(),
-          description: body?.description ?? '',
-          userId: body.userId,
-          timestamp: Date.now(),
-        };
-        writeDB('messages', [newMsg, ...msgs]);
-        res.send(newMsg);
-      } catch (error) {
-        res.status(500).send({ error });
-      }
-    },
+      },
+    ],
   },
   {
     method: HttpMethod.PUT,
