@@ -15,7 +15,8 @@
 - [ ] **레이어드 아키텍쳐**를 적용하는 방향으로 리펙토링
 - [ ] 객체 지향에 대해 고민해 보며, `typedi`를 적용
 - [ ] `db`를 `lowdb`로 바꾸되 레포지토리를 만들어 활용하는 방향으로 리펙토링
-- [ ] 프론트 컴포넌트는 `storybook`을 통해 문서를 작성하고, 백엔드 API에 대해서는 `stoplight`를 통해 `yaml`을 작성하여 문서를 제공
+- [ ] 프론트엔드 컴포넌트는 `storybook`을 통해 문서를 작성
+- [x] 백엔드 API에 대해서는 `stoplight`를 통해 `yaml`을 작성하여 문서를 제공
 
 ## Technology or library used
 
