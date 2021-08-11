@@ -1,0 +1,45 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Textarea /> match snapshot 1`] = `
+.emotion-0 {
+  padding: 12px;
+  border-radius: 4px;
+  border: none;
+  box-shadow: 0 1px 1px 0 rgba(0,0,0,0.14),0 2px 1px -1px rgba(0,0,0,0.12),0 1px 3px 0 rgba(0,0,0,0.20);
+  min-width: 300px;
+}
+
+.emotion-0:focus-visible,
+.emotion-0:focus {
+  outline: #42a5f5 solid 1px;
+  background: #fafafa;
+}
+
+<textarea
+  className="emotion-0"
+/>
+`;
+
+exports[`<Textarea /> match snapshot 2`] = `
+.emotion-0 {
+  padding: 12px;
+  border-radius: 4px;
+  border: none;
+  box-shadow: 0 1px 1px 0 rgba(0,0,0,0.14),0 2px 1px -1px rgba(0,0,0,0.12),0 1px 3px 0 rgba(0,0,0,0.20);
+  min-width: 300px;
+}
+
+.emotion-0:focus-visible,
+.emotion-0:focus {
+  outline: #42a5f5 solid 1px;
+  background: #fafafa;
+}
+
+<div>
+  <textarea
+    class="emotion-0"
+  >
+    i am textarea
+  </textarea>
+</div>
+`;
