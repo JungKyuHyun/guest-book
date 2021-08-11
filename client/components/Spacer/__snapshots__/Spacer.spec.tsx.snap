@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Spacer /> match snapshot 1`] = `
+.emotion-0 {
+  display: block;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+<div
+  className="emotion-0"
+/>
+`;
