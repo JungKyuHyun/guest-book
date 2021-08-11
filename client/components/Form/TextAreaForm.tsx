@@ -10,6 +10,7 @@ interface Props extends Omit<TextareaProps, 'onSubmit'> {
   onSubmit?: (text: string, formId: string) => void;
   buttonLabel?: string;
   placeholder?: string;
+  defaultValue?: string | number;
   formId: string;
 }
 
@@ -19,6 +20,7 @@ export function TextAreaForm({
   buttonLabel,
   placeholder,
   formId,
+  defaultValue,
   ...others
 }: Props) {
   const textareaRef = useRef<HTMLTextAreaElement>(null);
@@ -42,6 +44,7 @@ export function TextAreaForm({
   return (
     <Form className={className} onSubmit={handleSubmit}>
       <Textarea
+        defaultValue={defaultValue}
         ref={textareaRef}
         rows={3}
         placeholder={placeholder}
