@@ -1,4 +1,4 @@
-import { cleanup, render } from '@testing-library/react';
+import { cleanup } from '@testing-library/react';
 import { matchers, createSerializer } from '@emotion/jest';
 import renderer from 'react-test-renderer';
 import { Spacer } from './Spacer';
