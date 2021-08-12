@@ -1,0 +1,123 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<TextAreaForm /> match snapshot 1`] = `
+.emotion-0 {
+  position: relative;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
+  -webkit-justify-content: flex-start;
+  justify-content: flex-start;
+}
+
+.emotion-0 Textarea {
+  min-width: 100%;
+}
+
+.emotion-0 Button {
+  margin-top: 8px;
+  margin-left: 0;
+}
+
+@media (min-width: 600px) {
+  .emotion-0 {
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+  }
+
+  .emotion-0 Textarea {
+    min-width: 360px;
+  }
+
+  .emotion-0 Button {
+    margin-top: 0;
+    margin-left: 8px;
+  }
+}
+
+.emotion-2 {
+  padding: 12px;
+  border-radius: 4px;
+  border: none;
+  box-shadow: 0 1px 1px 0 rgba(0,0,0,0.14),0 2px 1px -1px rgba(0,0,0,0.12),0 1px 3px 0 rgba(0,0,0,0.20);
+  min-width: 300px;
+}
+
+.emotion-2:focus-visible,
+.emotion-2:focus {
+  outline: #42a5f5 solid 1px;
+  background: #fafafa;
+}
+
+.emotion-3 {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  white-space: nowrap;
+  cursor: pointer;
+  border: 0;
+  border-radius: 4px;
+  line-height: 1.75;
+  min-width: 64px;
+  box-shadow: 0 1px 1px 0 rgba(0,0,0,0.14),0 2px 1px -1px rgba(0,0,0,0.12),0 1px 3px 0 rgba(0,0,0,0.20);
+  padding: 6px 16px;
+  font-weight: 500;
+  font-size: 14px;
+  min-height: 40px;
+  background: #e0e0e0;
+  color: #000;
+}
+
+.emotion-3:hover {
+  background: #bdbdbd;
+}
+
+.emotion-3:disabled {
+  box-shadow: none;
+  pointer-events: none;
+}
+
+.emotion-3:focus {
+  outline: none;
+}
+
+<form
+  className="emotion-0 emotion-1"
+  onSubmit={[Function]}
+>
+  <textarea
+    className="emotion-2"
+    rows={3}
+  />
+  <button
+    className="emotion-3 emotion-4"
+    disabled={false}
+    size="medium"
+    type="submit"
+  />
+</form>
+`;
