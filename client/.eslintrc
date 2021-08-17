@@ -1,6 +1,6 @@
 {
+  "plugins": ["react-hooks"],
   "extends": ["next", "next/core-web-vitals"],
-  "plugin": ["react-hooks"],
   "rules": {
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "warn"
