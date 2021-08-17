@@ -24,7 +24,7 @@
 - Backend: typescript, nodeJs, express, typedi, jest
 - Etc: yarn-workspace
 
-## Additionally what I found out
+## Additionally, what I found out
 
 - `yarn workspace` 사용 방법
 - `modern-normalize` 존재
@@ -35,6 +35,7 @@
 - `express`에서 `status code` 및 에러 메시지를 내려주는 법
 - `@testing-library/react` 및 `react-test-renderer` 사용법
 - `emotion`을 통해 만들어진 컴포넌트의 테스트 케이스 작성법
+- `IntelliJ IDEA` 사용법
 - ...
 
 ## Preview UI
